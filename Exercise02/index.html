@@ -38,11 +38,11 @@
   <section class="mainContent">
     <section class="summaries">
       <script type="text/x-handlebars">
-        {{#each WReader.dataController}}
-          {{#view WReader.SummaryListView contentBinding="this"}}
-            {{content.title}} from {{content.pub_name}} on {{content.pub_date}}
-          {{/view}}
-        {{/each}}
+          {{#each WReader.dataController}}
+            {{#view WReader.SummaryListView contentBinding="this"}}
+              {{content.title}} from {{content.pub_name}} on {{content.pub_date}}
+            {{/view}}
+          {{/each}}
       </script>
     </section>
   </section>

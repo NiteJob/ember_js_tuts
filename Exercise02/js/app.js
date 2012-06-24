@@ -11,6 +11,8 @@ var WReader = Em.Application.create({
 
 // Ember Object model for entry items
 WReader.Item = Em.Object.extend({
+  //TODO:
+
   read: false,
   starred: false,
   item_id: null,
@@ -25,20 +27,23 @@ WReader.Item = Em.Object.extend({
 });
 
 WReader.dataController = Em.ArrayController.create({
-  /* Exercise 2.2 */
-  // Content Array for Embers data
+  // content array for Ember's data
   content: [],
-  addItem: function (item) {
+
+  // Adds an item to the controller if it's not already in the controller
+  addItem: function(item) {
+    // Check to see if there are any items in the controller with the same
+    //  item_id already
     var exists = this.filterProperty('item_id', item.item_id).length;
-    if (exists == 0) {
-      // No results are found, we add the new item to the data
+    if (exists === 0) {
+      // If no results are returned, we insert the new item into the data
+      // controller in order of publication date
       var length = this.get('length'), idx;
       idx = this.binarySearch(Date.parse(item.get('pub_date')), 0, length);
       this.insertAt(idx, item);
       return true;
-    }
-    else {
-      // Already in the controller, no need to add.
+    } else {
+      // It's already in the data controller, so we won't re-add it.
       return false;
     }
   },
@@ -64,7 +69,9 @@ WReader.dataController = Em.ArrayController.create({
 
 // View for the ItemsList
 WReader.SummaryListView = Em.View.extend({
-  /* Exercise 2.3 */
+  //TODO:
+
   tagName: 'article',
+
   classNames: ['well', 'summary']
 });

@@ -92,6 +92,19 @@ WReader.dataController = Em.ArrayController.create({
 //  in here, it's solely used to decide what we're showing, pulling from
 //  the data controller.
 WReader.itemsController = Em.ArrayController.create({
+  content: [],
+
+  filterBy: function (key, value) {
+    this.set('content', WReader.dataController.filterProperty(key, value);
+  },
+
+  clearFilter: function () {
+    this.set('content', WReader.dataController.get('content'));
+  },
+
+  showDefault: function () {
+    this.filterBy('read', false);
+  }
   /* Exercise 4.1 */
 });
 

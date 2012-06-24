@@ -39,6 +39,12 @@
     <section class="summaries">
       <script type="text/x-handlebars">
         <!-- Exercise 3.2 -->
+        <div>
+          {{WReader.dataController.itemCount}} items <br />
+          {{WReader.dataController.unreadCount}} are unread<br />
+          {{WReader.dataController.readCount}} are read<br />
+          {{WReader.dataController.starredCount}} are starred<br />
+        </div>
           {{#each WReader.dataController}}
             {{#view WReader.SummaryListView contentBinding="this"}}
               {{content.title}} from {{content.pub_name}} on {{formattedDate}}
